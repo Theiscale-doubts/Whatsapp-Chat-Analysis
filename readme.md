@@ -1,98 +1,66 @@
-WhatsApp Chat Analysis (Streamlit App)
+# 📊 WhatsApp Chat Analyzer
 
-A simple yet powerful WhatsApp Chat Analyzer built using Python and Streamlit.
-Upload your exported chat file and get meaningful insights like user activity, word usage, emoji trends, and timelines.
+A comprehensive data analysis web application that transforms exported WhatsApp chat data into actionable insights. Built with Streamlit, this tool allows users to visualize messaging patterns, activity timelines, and linguistic habits.
 
-Features
+---
 
-Top Statistics
+## ✨ Key Features
 
-Total Messages
+- **Top Statistics:** Total messages, word count, media shared, and links shared.
+- **Activity Timelines:** View messaging trends over days and months.
+- **User Heatmaps:** Identify the most active participants in a group.
+- **Linguistic Analysis:**
+  - **Most Common Words:** Filtered to remove "stop words" for meaningful results.
+- **Emoji Analysis:** Breakdown of the most frequently used emojis.
+- **Dynamic Filtering:** Toggle between "Overall" group stats or specific user analysis.
 
-Total Words
+---
 
-Media Shared
+## 🛠️ Tech Stack
 
-Links Shared
+| Layer | Technology |
+|---|---|
+| Frontend | Streamlit |
+| Data Processing | Pandas |
+| Regex | `re` (for chat parsing) |
+| Visualization | Matplotlib |
+| Utilities | `urlextract`, `emoji`, `collections` |
 
-Most Active Users
+---
 
-Identify top contributors
+## 🚀 How to Run
 
-Percentage contribution of each user
+**1. Clone the Repository:**
+```bash
+git clone https://github.com/your-username/whatsapp-chat-analyzer.git
+cd whatsapp-chat-analyzer
+```
 
-Most Common Words
+**2. Install Dependencies:**
+```bash
+pip install streamlit urlextract pandas matplotlib emoji
+```
 
-Removes Hinglish stopwords
-
-Displays top 25 most used words
-
-Emoji Analysis
-
-Most frequently used emojis
-
-Pie chart visualization
-
-Timeline Analysis
-
-Monthly activity trends
-
-Daily message patterns
-
-Tech Stack
-
-Python
-
-Streamlit
-
-Pandas
-
-Matplotlib
-
-Regex (re)
-
-emoji
-
-urlextract
-
-Project Structure
-
-app.py → Main Streamlit app
-
-helper.py → Analysis functions
-
-preprocessor.py → Data preprocessing
-
-stop_hinglish.txt → Stopwords list
-
-README.md
-
-How It Works
-
-Export your WhatsApp chat as a .txt file
-
-Upload the file in the app
-
-The system:
-
-Cleans raw chat data
-
-Extracts users, messages, timestamps
-
-Performs analysis and visualization
-
-Run Locally
-
-Install dependencies:
-pip install -r requirements.txt
-
-Run the app:
+**3. Run the App:**
+```bash
 streamlit run app.py
+```
 
-Notes
+---
 
-Works with standard WhatsApp exported chat format
+## 📂 Project Structure
 
-Supports both group and personal chats
+```
+whatsapp-chat-analyzer/
+│
+├── app.py                # Main entry point for the Streamlit dashboard
+├── preprocessor.py       # Cleans and transforms raw .txt chat files into structured DataFrames
+├── helper.py             # Logic for calculating stats, timelines, and common words
+└── stop_hinglish.txt     # List of common filler words (Hinglish/English) to improve word cloud accuracy
+```
 
-Detects media messages and links
+---
+
+## 📝 Usage Note
+
+To use the analyzer, export your WhatsApp chat **(without media)** as a `.txt` file. Upload this file via the sidebar in the application to begin the analysis.
